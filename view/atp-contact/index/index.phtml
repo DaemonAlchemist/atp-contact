@@ -3,6 +3,8 @@
 
 <h1>Contact Us</h1>
 
+<?=$flash?>
+
 <div id="contact-form">
 	{{block:contact-page}}
 	<form action="<?=$this->url('contact', array('action' => 'post'))?>" method="post">
