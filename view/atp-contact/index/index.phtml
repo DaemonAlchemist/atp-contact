@@ -1,0 +1,15 @@
+<?php $this->headTitle("Contact Us")?>
+<?php $this->appendCss("/atp-contact/css/contact.less")?>
+
+<h1>Contact Us</h1>
+
+<div id="contact-form">
+	{{block:contact-page}}
+	<form action="<?=$this->url('contact', array('action' => 'post'))?>" method="post">
+		<?php foreach($fields as $field) { ?>
+			<?php $helper = "form" . ucfirst($field->type)?>
+			<?=$this->$helper(array('label' => $field->label, 'name' => ucfirst($field->type), 'value' => ''))?>
+		<?php } ?>
+		<input type="submit" value="Send Message"/>
+	</form>
+</div>
