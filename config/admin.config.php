@@ -18,6 +18,16 @@ return array(
 				'type' => 'Text',
 				'default' => 'john.doe@example.com',
 			),
+			'contact-delivery-method' => array(
+				'displayName' => 'Delivery Method',
+				'group' => 'Contacts',
+				'type' => 'Enum',
+				'default' => 'Mandrill',
+				'options' => array(
+					'mail()',
+					'Mandrill',
+				),
+			),
 		),
 	),
 );
