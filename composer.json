@@ -14,7 +14,7 @@
         }
     },
     "require": {
-		"daemonalchemist/atp-core": "dev-master"
+		"daemonalchemist/atp-core": "dev-master",
 		"mandrill/mandrill": "dev-master"
     }
 }
