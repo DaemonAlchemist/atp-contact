@@ -1,0 +1,19 @@
+{
+    "name": "daemonalchemist/atp-contact",
+    "description": "Contact module for ATP framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Wittrock",
+            "email": "andy@wittrock.us"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "ATPContact": "src"
+        }
+    },
+    "require": {
+		"daemonalchemist/atp-core": "dev-master"
+    }
+}
