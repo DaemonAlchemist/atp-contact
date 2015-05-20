@@ -37,7 +37,7 @@ return array(
 				),
 			),
 			'contact-success-message' => array(
-				'displayName' => 'Contact Seccess Message',
+				'displayName' => 'Contact Success Message',
 				'group' => 'Contacts',
 				'subGroup' => 'Email Template',
 				'type' => 'Text',
