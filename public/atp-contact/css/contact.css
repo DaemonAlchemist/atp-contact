@@ -8,7 +8,7 @@
 }
 #contact-form label {
  float: left;
- clear: both;
+ clear: left;
  width: 30%;
  text-align: right;
  background: #dddddd;

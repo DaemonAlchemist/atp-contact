@@ -31,7 +31,7 @@ return array(
 				'group' => 'Contacts',
 				'subGroup' => 'Addresses',
 				'type' => 'ModelSelect',
-				'default' => '',
+				'default' => '2',
 				'options' => array(
 					'className' => 'ATPContact\Model\Field',
 				),
@@ -55,7 +55,20 @@ return array(
 				'group' => 'Contacts',
 				'subGroup' => 'Email Template',
 				'type' => 'Textarea',
-				'default' => '',
+				'default' => '
+					<html>
+						<body>
+							<p>Someone sent you a message from the website:</p>
+
+							<p>
+								Name: {Name}<br/>
+								Email: {Email}<br/>
+								Phone #: {Phone #}<br/>
+								Message: {Message}
+							</p>
+						</body>
+					</html>
+				',
 			),
 			'contact-delivery-method' => array(
 				'displayName' => 'Delivery Method',
