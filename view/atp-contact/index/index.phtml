@@ -1,17 +1,19 @@
 <?php $this->headTitle("Contact Us")?>
 <?php $this->appendCss("/atp-contact/css/contact.less")?>
 
-<h1>Contact Us</h1>
+<div id="contact-us">
+	<h1>Contact Us</h1>
 
-<?=$flash?>
+	<?=$flash?>
 
-<div id="contact-form">
-	{{block:contact-page}}
-	<form action="<?=$this->url('contact', array('action' => 'post'))?>" method="post">
-		<?php foreach($fields as $field) { ?>
-			<?php $helper = "form" . ucfirst($field->type)?>
-			<?=$this->$helper(array('label' => $field->label, 'name' => \ATP\Inflector::underscore($field->label), 'value' => ''))?>
-		<?php } ?>
-		<input type="submit" value="Send Message"/>
-	</form>
+	<div id="contact-form">
+		{{block:contact-page}}
+		<form action="<?=$this->url('contact', array('action' => 'post'))?>" method="post">
+			<?php foreach($fields as $field) { ?>
+				<?php $helper = "form" . ucfirst($field->type)?>
+				<?=$this->$helper(array('label' => $field->label, 'name' => \ATP\Inflector::underscore($field->label), 'value' => ''))?>
+			<?php } ?>
+			<input type="submit" value="Send Message"/>
+		</form>
+	</div>
 </div>
