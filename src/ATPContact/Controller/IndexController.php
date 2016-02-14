@@ -6,6 +6,8 @@ class IndexController extends \ATPCore\Controller\AbstractController
 {
 	public function indexAction()
 	{
+        $this->noCache();
+
 		$view = new \Zend\View\Model\ViewModel();
 		
 		$field = new \ATPContact\Model\Field();
