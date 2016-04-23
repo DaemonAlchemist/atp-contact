@@ -43,23 +43,26 @@ class IndexController extends \ATPCore\Controller\AbstractController
 
 		$replyToField = new \ATPContact\Model\Field();
 		$replyToField->loadById($this->siteParam('contact-reply-to-field'));
-		$mandrillMessage = array(
-			'html' => $messageHtml,
-			'text' => $messageText,
-			'subject' => $this->siteParam('contact-subject'),
-			'from_email' => $this->siteParam('contact-email-from'),
-			'to' => array(
-				array(
-					'email' => $this->siteParam('contact-email-to'),
-					'type' => 'to',
-				),
-			),
-			'headers' => array('Reply-To' => $messageData[$replyToField->label]),
-		);
-		
-		$mandrill = new \Mandrill($this->siteParam('mandrill-api-key'));
-		$mandrill->messages->send($mandrillMessage);
-		
+
+        $sesMessage = [
+            'Destination' => [
+                'ToAddresses' => [$this->siteParam('contact-email-to')]
+            ],
+            'ReplyToAddresses' => [$messageData[$replyToField->label]],
+            'Source' => $this->siteParam('contact-email-from'),
+            'Message' => [
+                'Subject' => ['Data' => $this->siteParam('contact-subject')],
+                'Body' => [
+                    'Text' => ['Data' => $messageText],
+                    'Html' => ['Data' => $messageHtml],
+                ]
+            ],
+        ];
+
+        //echo "<pre>";print_r($sesMessage);die();
+        $result = $this->getServiceLocator()->get(\Aws\Sdk::class)->createSes()->sendEmail($sesMessage);
+        echo "<pre>";print_r($result);die();
+
 		//TODO: add confirmation message
 		$this->flash = $this->flashMessenger();
 		$this->flash->addSuccessMessage($this->siteParam('contact-success-message'));
