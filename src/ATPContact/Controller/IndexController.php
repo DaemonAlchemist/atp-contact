@@ -59,9 +59,7 @@ class IndexController extends \ATPCore\Controller\AbstractController
             ],
         ];
 
-        //echo "<pre>";print_r($sesMessage);die();
         $result = $this->getServiceLocator()->get(\Aws\Sdk::class)->createSes()->sendEmail($sesMessage);
-        echo "<pre>";print_r($result);die();
 
 		//TODO: add confirmation message
 		$this->flash = $this->flashMessenger();
